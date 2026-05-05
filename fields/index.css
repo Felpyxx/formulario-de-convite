@@ -1,0 +1,13 @@
+@import url(input.css);
+@import url(buttons.css);
+@import url(radio.css);
+@import url(checkbox.css);
+@import url(droparea.css);
+
+
+/* Fields index — imports all field component styles */
+@import url('buttons.css');
+@import url('checkbox.css');
+@import url('droparea.css');
+@import url('input.css');
+@import url('radio.css');

@@ -1,0 +1,100 @@
+.droparea {
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: var(--bg-input);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.droparea:hover, .droparea.dragging {
+  border-color: var(--accent);
+  background: rgba(255, 63, 164, 0.05);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  transform: scale(1.01);
+}
+
+.droparea-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.droparea:hover .droparea-icon { transform: scale(1.1) rotate(5deg); }
+
+.droparea-text {
+  text-align: left;
+  flex: 1;
+}
+
+.droparea-text strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  margin-bottom: 0.1rem;
+}
+
+.droparea-text span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.droparea input[type="file"] {
+  display: none;
+}
+
+.droparea-btn {
+  padding: 0.4rem 0.9rem;
+  border-radius: 7px;
+  background: var(--bg-hover);
+  border: 1.5px solid var(--border);
+  color: var(--text-secondary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.droparea-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+.file-preview {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255,63,164,0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(255,63,164,0.2);
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin-top: 0.5rem;
+  animation: fadeInUp 0.3s ease;
+}
+
+.file-preview.show { display: flex; }
+
+.file-preview-remove {
+  margin-left: auto;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.file-preview-remove:hover { opacity: 1; }

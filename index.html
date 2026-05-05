@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario de Convite</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../Formulario de convite/index.html">
+  <link rel="stylesheet" href="../Formulario de convite/Styles/index.css">
+
+<!-- Styles -->
+  <link rel="stylesheet" href="../Formulario de convite/Styles/global.css" />
+  <link rel="stylesheet" href="../Formulario de convite/Styles/layout.css" />
+  <link rel="stylesheet" href="../Formulario de convite/Styles/forms.css" />
+  <link rel="stylesheet" href="../Formulario de convite/Styles/index.css" />
+  
+
+  <!-- Fields -->
+  <link rel="stylesheet" href="../Formulario de convite/fields/input.css" />
+  <link rel="stylesheet" href="../Formulario de convite/fields/buttons.css" />
+  <link rel="stylesheet" href="../Formulario de convite/fields/checkbox.css" />
+  <link rel="stylesheet" href="../Formulario de convite/fields/radio.css" />
+  <link rel="stylesheet" href="../Formulario de convite/fields/droparea.css" />
+  <head>
+<body>
+
+
+<div class="app-wrapper">
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-icon">🎉</span>
+      <div>
+        <span class="brand-name">Festivite</span>
+        <span class="brand-tagline">Crie um convite digital para o seu evento</span>
+      </div>
+    </div>
+    <button class="theme-toggle" id="themeToggle" title="Alternar tema" aria-label="Alternar tema">🌙</button>
+  </header>
+
+  <!-- Main Card -->
+  <main class="main-card">
+
+    <!-- Hero Banner -->
+    <div class="card-hero">
+      <div class="hero-text">
+        <h1 class="hero-title">Crie seu convite</h1>
+        <p class="hero-subtitle">Personalize e compartilhe em segundos ✨</p>
+      </div>
+      <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=220&h=220&fit=crop&crop=center"
+        alt="Bolo de aniversário"
+        onerror="this.style.display='none'"
+      />
+    </div>
+
+    <div class="card-body">
+
+      <!-- SECTION 1: Sobre o evento -->
+      <div class="section-block">
+        <h2 class="section-title">
+          <span class="section-icon">📋</span>
+          Sobre o evento
+        </h2>
+
+        <div class="row" style="margin-bottom: 1rem;">
+          <div class="field-group" id="fg-titulo">
+            <label class="field-label" for="titulo">Título</label>
+            <input type="text" id="titulo" name="titulo" placeholder="Nome do evento" />
+            <span class="field-error">Por favor, insira o título do evento.</span>
+          </div>
+        </div>
+
+        <div class="row row-2" style="margin-bottom: 1rem;">
+          <div class="field-group">
+            <label class="field-label" for="inicio">Início</label>
+            <input type="datetime-local" id="inicio" name="inicio" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="fim">Fim</label>
+            <input type="datetime-local" id="fim" name="fim" />
+          </div>
+        </div>
+
+        <div class="row row-2" style="margin-bottom: 1rem;">
+          <div class="field-group">
+            <label class="field-label">Tipo</label>
+            <div class="btn-type-group">
+              <button class="btn-type active" data-type="presencial" onclick="selectType(this)">📍 Presencial</button>
+              <button class="btn-type" data-type="online" onclick="selectType(this)">💻 Online</button>
+            </div>
+          </div>
+          <div class="field-group" id="fg-local">
+            <label class="field-label" for="local">Local</label>
+            <input type="text" id="local" name="local" placeholder="Endereço ou link" />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="descricao">Descrição</label>
+          <textarea id="descricao" name="descricao" placeholder="Escreva sobre os detalhes do evento…"></textarea>
+        </div>
+      </div>
+
+      <!-- SECTION 2: Personalização -->
+      <div class="section-block">
+        <h2 class="section-title">
+          <span class="section-icon">🎨</span>
+          Personalização
+        </h2>
+
+        <div class="field-group" style="margin-bottom: 1.25rem;">
+          <label class="field-label">Cor principal</label>
+          <div class="color-palette" id="colorPalette">
+            <div class="color-dot active" data-color="#3B82F6" style="background:#3B82F6" onclick="selectColor(this)" title="Azul"></div>
+            <div class="color-dot" data-color="#8B5CF6" style="background:#8B5CF6" onclick="selectColor(this)" title="Roxo"></div>
+            <div class="color-dot" data-color="#EC4899" style="background:#EC4899" onclick="selectColor(this)" title="Rosa"></div>
+            <div class="color-dot" data-color="#FF3FA4" style="background:#FF3FA4" onclick="selectColor(this)" title="Magenta"></div>
+            <div class="color-dot" data-color="#EF4444" style="background:#EF4444" onclick="selectColor(this)" title="Vermelho"></div>
+            <div class="color-dot" data-color="#F97316" style="background:#F97316" onclick="selectColor(this)" title="Laranja"></div>
+            <div class="color-dot" data-color="#EAB308" style="background:#EAB308" onclick="selectColor(this)" title="Amarelo"></div>
+            <div class="color-dot" data-color="#22C55E" style="background:#22C55E" onclick="selectColor(this)" title="Verde"></div>
+            <div class="color-dot" data-color="#14B8A6" style="background:#14B8A6" onclick="selectColor(this)" title="Teal"></div>
+            <div class="color-dot" data-color="#06B6D4" style="background:#06B6D4" onclick="selectColor(this)" title="Ciano"></div>
+            <div class="color-dot" data-color="#6366F1" style="background:#6366F1" onclick="selectColor(this)" title="Índigo"></div>
+            <div class="color-dot" data-color="#F472B6" style="background:#F472B6" onclick="selectColor(this)" title="Rosa claro"></div>
+          </div>
+        </div>
+
+        <div class="field-group" style="margin-bottom: 1.25rem;">
+          <label class="field-label">Tema do evento</label>
+          <div class="theme-grid" id="themeGrid">
+            <div class="theme-card active" data-theme-name="aniversario" onclick="selectTheme(this)">
+              <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=80&fit=crop" alt="Aniversário" onerror="this.style.background='#333'; this.style.height='60px'" />
+              <div class="theme-card-label">🎂 Aniversário</div>
+            </div>
+            <div class="theme-card" data-theme-name="infantil" onclick="selectTheme(this)">
+              <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=200&h=80&fit=crop" alt="Infantil" onerror="this.style.background='#333'; this.style.height='60px'" />
+              <div class="theme-card-label">🎈 Infantil</div>
+            </div>
+            <div class="theme-card" data-theme-name="formatura" onclick="selectTheme(this)">
+              <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=200&h=80&fit=crop" alt="Formatura" onerror="this.style.background='#333'; this.style.height='60px'" />
+              <div class="theme-card-label">🎓 Formatura</div>
+            </div>
+            <div class="theme-card" data-theme-name="casamento" onclick="selectTheme(this)">
+              <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=200&h=80&fit=crop" alt="Casamento" onerror="this.style.background='#333'; this.style.height='60px'" />
+              <div class="theme-card-label">💍 Casamento</div>
+            </div>
+            <div class="theme-card" data-theme-name="chade-bebe" onclick="selectTheme(this)">
+              <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=200&h=80&fit=crop" alt="Chá de bebê" onerror="this.style.background='#333'; this.style.height='60px'" />
+              <div class="theme-card-label">🍼 Chá de bebê</div>
+            </div>
+            <div class="theme-card" data-theme-name="chade-panela" onclick="selectTheme(this)">
+              <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200&h=80&fit=crop" alt="Chá de panela" onerror="this.style.background='#333'; this.style.height='60px'" />
+              <div class="theme-card-label">🍳 Chá de panela</div>
+            </div>
+            <div class="theme-card" data-theme-name="carnaval" onclick="selectTheme(this)">
+              <img src="https://images.unsplash.com/photo-1547407139-3c921a66005c?w=200&h=80&fit=crop" alt="Carnaval" onerror="this.style.background='#333'; this.style.height='60px'" />
+              <div class="theme-card-label">🎭 Carnaval</div>
+            </div>
+            <div class="theme-card" data-theme-name="pascoa" onclick="selectTheme(this)">
+              <img src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=200&h=80&fit=crop" alt="Páscoa" onerror="this.style.background='#333'; this.style.height='60px'" />
+              <div class="theme-card-label">🐣 Páscoa</div>
+            </div>
+            <div class="theme-card" data-theme-name="sao-joao" onclick="selectTheme(this)">
+              <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=200&h=80&fit=crop" alt="São João" onerror="this.style.background='#333'; this.style.height='60px'" />
+              <div class="theme-card-label">🎆 São João</div>
+            </div>
+            <div class="theme-card" data-theme-name="halloween" onclick="selectTheme(this)">
+              <img src="https://images.unsplash.com/photo-1509557965875-b88c97052f0e?w=200&h=80&fit=crop" alt="Halloween" onerror="this.style.background='#333'; this.style.height='60px'" />
+              <div class="theme-card-label">🎃 Halloween</div>
+            </div>
+            <div class="theme-card" data-theme-name="natal" onclick="selectTheme(this)">
+              <img src="https://images.unsplash.com/photo-1543589077-47d81606c1bf?w=200&h=80&fit=crop" alt="Natal" onerror="this.style.background='#333'; this.style.height='60px'" />
+              <div class="theme-card-label">🎄 Natal</div>
+            </div>
+            <div class="theme-card" data-theme-name="outro" onclick="selectTheme(this)">
+              <div style="height:60px; background: linear-gradient(135deg,#667eea,#764ba2); display:flex;align-items:center;justify-content:center;font-size:1.5rem;">✨</div>
+              <div class="theme-card-label">🎊 Outro</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row row-2" style="margin-bottom: 0;">
+          <div class="field-group">
+            <label class="field-label">Estilo</label>
+            <div class="style-toggle">
+              <label class="checkbox-label" style="border:none;background:none;padding:0;">
+                <input type="checkbox" class="checkbox-input" id="styleDark" />
+                <span>Escuro</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Foto de capa</label>
+            <label class="droparea" id="dropzone" for="coverFile">
+              <div class="droparea-icon">🖼️</div>
+              <div class="droparea-text">
+                <strong>Arraste ou clique</strong>
+                <span>PNG, JPG até 10 MB</span>
+              </div>
+              <button type="button" class="droparea-btn" onclick="document.getElementById('coverFile').click()">Selecionar</button>
+              <input type="file" id="coverFile" accept="image/*" onchange="handleFile(this)" />
+            </label>
+            <div class="file-preview" id="filePreview">
+              <span>🖼️</span>
+              <span id="fileName">arquivo.jpg</span>
+              <span class="file-preview-remove" onclick="removeFile()">✕</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: Dados para contato -->
+      <div class="section-block">
+        <h2 class="section-title">
+          <span class="section-icon">📬</span>
+          Dados para contato
+        </h2>
+
+        <div class="row" style="margin-bottom: 1rem;">
+          <div class="field-group" id="fg-nome">
+            <label class="field-label" for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Nome completo" />
+            <span class="field-error">Campo obrigatório.</span>
+          </div>
+        </div>
+
+        <div class="row row-2" style="margin-bottom: 1rem;">
+          <div class="field-group" id="fg-email">
+            <label class="field-label" for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="exemplo@email.com" />
+            <span class="field-error">Insira um e-mail válido.</span>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999" />
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: Termos + Botão -->
+      <div class="section-block">
+        <div class="checkbox-group" style="margin-bottom: 1.5rem;">
+          <label class="checkbox-label">
+            <input type="checkbox" class="checkbox-input" id="terms" required />
+            <span>Li e concordo com os <a href="#" class="checkbox-link">Termos e Condições</a> e com a <a href="#" class="checkbox-link">Política de Privacidade</a></span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" class="checkbox-input" id="emailPromo" />
+            <span>Aceito receber atualizações e promoções por e-mail</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" class="checkbox-input" id="smsPromo" />
+            <span>Aceito receber atualizações e promoções por SMS</span>
+          </label>
+        </div>
+
+        <div class="submit-row">
+          <div style="font-size:0.78rem; color: var(--text-muted);">
+            🔒 Seus dados estão seguros conosco
+          </div>
+          <button class="btn btn-primary" id="submitBtn" onclick="handleSubmit()">
+            <span class="btn-text">🎊 Gerar convite</span>
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /.card-body -->
+  </main>
+</div>
+
+<!-- Success Toast -->
+<div class="success-toast" id="toast">🎉 Convite gerado com sucesso!</div>
+
+<script>
+  // ─── Theme Toggle ───────────────────────────────────────────
+  const toggleBtn = document.getElementById('themeToggle');
+  toggleBtn.addEventListener('click', () => {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    toggleBtn.textContent = isDark ? '☀️' : '🌙';
+  });
+
+  // ─── Event Type Selector ────────────────────────────────────
+  function selectType(btn) {
+    document.querySelectorAll('.btn-type').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const localInput = document.getElementById('local');
+    if (btn.dataset.type === 'online') {
+      localInput.placeholder = 'Link da reunião ou transmissão';
+    } else {
+      localInput.placeholder = 'Endereço ou link';
+    }
+  }
+
+  // ─── Color Selector ─────────────────────────────────────────
+  function selectColor(dot) {
+    document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+    dot.classList.add('active');
+    const color = dot.dataset.color;
+    document.documentElement.style.setProperty('--accent', color);
+    // Update glow
+    const hex = color.replace('#','');
+    const r = parseInt(hex.substring(0,2),16);
+    const g = parseInt(hex.substring(2,4),16);
+    const b = parseInt(hex.substring(4,6),16);
+    document.documentElement.style.setProperty('--accent-glow', `rgba(${r},${g},${b},0.35)`);
+  }
+
+  // ─── Theme Card Selector ────────────────────────────────────
+  function selectTheme(card) {
+    document.querySelectorAll('.theme-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+  }
+
+  // ─── File Drop Area ─────────────────────────────────────────
+  const dropzone = document.getElementById('dropzone');
+  const filePreview = document.getElementById('filePreview');
+  const fileNameEl = document.getElementById('fileName');
+
+  dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('dragging'); });
+  dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragging'));
+  dropzone.addEventListener('drop', e => {
+    e.preventDefault();
+    dropzone.classList.remove('dragging');
+    const f = e.dataTransfer.files[0];
+    if (f) showFile(f.name);
+  });
+
+  function handleFile(input) {
+    if (input.files[0]) showFile(input.files[0].name);
+  }
+
+  function showFile(name) {
+    fileNameEl.textContent = name;
+    filePreview.classList.add('show');
+  }
+
+  function removeFile() {
+    document.getElementById('coverFile').value = '';
+    filePreview.classList.remove('show');
+  }
+
+  // ─── Form Validation & Submit ───────────────────────────────
+  function handleSubmit() {
+    let valid = true;
+
+    const titulo = document.getElementById('titulo');
+    const nome = document.getElementById('nome');
+    const email = document.getElementById('email');
+    const terms = document.getElementById('terms');
+
+    // Validate title
+    const fgTitulo = document.getElementById('fg-titulo');
+    if (!titulo.value.trim()) {
+      fgTitulo.classList.add('has-error');
+      titulo.focus();
+      valid = false;
+    } else {
+      fgTitulo.classList.remove('has-error');
+    }
+
+    // Validate name
+    const fgNome = document.getElementById('fg-nome');
+    if (!nome.value.trim()) {
+      fgNome.classList.add('has-error');
+      if (valid) nome.focus();
+      valid = false;
+    } else {
+      fgNome.classList.remove('has-error');
+    }
+
+    // Validate email
+    const fgEmail = document.getElementById('fg-email');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value.trim())) {
+      fgEmail.classList.add('has-error');
+      if (valid) email.focus();
+      valid = false;
+    } else {
+      fgEmail.classList.remove('has-error');
+    }
+
+    // Validate terms
+    if (!terms.checked) {
+      terms.closest('.checkbox-label').style.animation = 'none';
+      requestAnimationFrame(() => {
+        terms.closest('.checkbox-label').style.animation = 'shake 0.3s ease';
+      });
+      if (valid) terms.focus();
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // Submit
+    const btn = document.getElementById('submitBtn');
+    btn.classList.add('loading');
+
+    setTimeout(() => {
+      btn.classList.remove('loading');
+      showToast();
+    }, 1800);
+  }
+
+  function showToast() {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3500);
+  }
+
+  // ─── Input animations on focus ──────────────────────────────
+  document.querySelectorAll('input, textarea').forEach(el => {
+    el.addEventListener('focus', () => {
+      el.closest('.field-group')?.classList.add('focused');
+    });
+    el.addEventListener('blur', () => {
+      el.closest('.field-group')?.classList.remove('focused');
+    });
+  });
+
+  // ─── Phone mask ─────────────────────────────────────────────
+  document.getElementById('telefone').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g, '').substring(0,11);
+    if (v.length > 6) v = `(${v.substring(0,2)}) ${v.substring(2,7)}-${v.substring(7)}`;
+    else if (v.length > 2) v = `(${v.substring(0,2)}) ${v.substring(2)}`;
+    else if (v.length > 0) v = `(${v}`;
+    this.value = v;
+  });
+</script>
+
+</body>
+</html>
